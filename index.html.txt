@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vinay Poswal | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #0f172a;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    header {
+      position: fixed;
+      width: 100%;
+      padding: 15px 50px;
+      display: flex;
+      justify-content: space-between;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+    }
+
+    header h1 {
+      color: #38bdf8;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #38bdf8;
+    }
+
+    section {
+      min-height: 100vh;
+      padding: 100px 50px;
+    }
+
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .hero-text h2 {
+      font-size: 50px;
+    }
+
+    .highlight {
+      color: #38bdf8;
+    }
+
+    .typing {
+      font-size: 24px;
+      margin-top: 10px;
+      color: #94a3b8;
+    }
+
+    .hero img {
+      width: 300px;
+      border-radius: 20px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+    .about, .projects, .contact {
+      text-align: center;
+    }
+
+    .cards {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+
+    .card {
+      background: #1e293b;
+      padding: 20px;
+      border-radius: 15px;
+      width: 250px;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: translateY(-10px) scale(1.05);
+      background: #38bdf8;
+      color: black;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      border-radius: 25px;
+      background: #38bdf8;
+      color: black;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: white;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #020617;
+    }
+
+    @media(max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero img {
+        margin-top: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Vinay</h1>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section id="home" class="hero">
+  <div class="hero-text">
+    <h2>Hello, I'm <span class="highlight">Vinay Poswal</span></h2>
+    <div class="typing" id="typing"></div>
+    <p>B.Tech CSE (AI & ML) Student at Manav Rachna University</p>
+    <a href="#projects" class="btn">View My Work</a>
+  </div>
+  <img src="https://via.placeholder.com/300" alt="profile">
+</section>
+
+<section id="about" class="about">
+  <h2>About Me</h2>
+  <p>
+    I am Vinay Poswal, currently pursuing B.Tech in Computer Science (AI & ML)
+    from Manav Rachna University. I have completed my first year and am passionate
+    about technology, programming, and building innovative projects.
+  </p>
+</section>
+
+<section id="projects" class="projects">
+  <h2>My Projects</h2>
+  <div class="cards">
+    <div class="card">Project 1<br><small>Coming Soon</small></div>
+    <div class="card">Project 2<br><small>Coming Soon</small></div>
+    <div class="card">Project 3<br><small>Coming Soon</small></div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <h2>Contact Me</h2>
+  <p>Email: vinay@example.com</p>
+  <a href="#" class="btn">Connect</a>
+</section>
+
+<footer>
+  <p>© 2026 Vinay Poswal | Portfolio</p>
+</footer>
+
+<script>
+  const text = ["AI & ML Enthusiast", "Future Developer", "Tech Explorer"];
+  let count = 0;
+  let index = 0;
+  let currentText = "";
+  let letter = "";
+
+  function type() {
+    if (count === text.length) {
+      count = 0;
+    }
+
+    currentText = text[count];
+    letter = currentText.slice(0, ++index);
+
+    document.getElementById("typing").textContent = letter;
+
+    if (letter.length === currentText.length) {
+      count++;
+      index = 0;
+      setTimeout(type, 1000);
+    } else {
+      setTimeout(type, 100);
+    }
+  }
+
+  type();
+</script>
+
+</body>
+</html>
